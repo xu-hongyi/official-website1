@@ -1,5 +1,10 @@
 import type { Config } from "tailwindcss";
 
+const heightMap = new Array(300).fill(1).reduce((prev, current, index) => {
+  prev[index] = `${index}px`
+  return prev
+}, {})
+
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,11 +13,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+      height: {
+        ...heightMap
+      }
     },
   },
   plugins: [],
