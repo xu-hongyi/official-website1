@@ -12,7 +12,7 @@ export default function Header({ lng }: any) {
         segments[1] = locale;
         return segments.join("/");
     };
-    return <header className="h-149 w-full fixed top-0 left-0 right-0 bg-white">
+    return <header className="h-149 w-full fixed top-0 left-0 right-0 bg-white z-[999]">
         <div className="h-35 mx-auto max-w-[1206px] flex justify-end">
             <ul className="text-slate-400 text-xs flex items-center">
                 <li className="underline underline-offset-1 mr-3.5 cursor-pointer">
