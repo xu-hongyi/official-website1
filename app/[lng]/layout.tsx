@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang={lng}>
       <body>
         <Header lng={lng}></Header>
-        {children}
+        <div className="pt-[149px] min-h-screen text-black">{children}</div>
         <Footer lng={lng}></Footer>
       </body>
     </html>
