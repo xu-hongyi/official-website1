@@ -1,6 +1,5 @@
 import { useTranslation } from "@/app/i18n/index"
 import Image from 'next/image'
-import News from "../components/News";
 import Carouset from "../components/Carousel";
 export default async function Home({ params: { lng } }: { params: { lng: string } }) {
   const { t } = await useTranslation(lng, 'home')
@@ -15,10 +14,12 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
       </div>
       <div className="bg-[url('/bg1.jpg')] bg-no-repeat bg-fixed bg-cover h-[1400px] pt-[50px]">
         <div className="relative h-[445px]">
-          <Image
-            fill
-            src={'/images/home/img1.png'}
-            alt=""
+          <Carouset
+            imgList={['/images/home/img1.png', '/images/home/banner1.jpg']}
+            width={580}
+            height={445}
+            namespace="home"
+            pagination
           />
         </div>
         <div className="mx-auto max-w-[1206px] flex justify-end">
@@ -42,7 +43,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
           </div>
         </div>
       </div>
-      <div className="h-[785px] py-[50px] bg-[url('/images/home/img2.png')] bg-no-repeat bg-[right_0_center] bg-auto">
+      {/* <div className="h-[785px] py-[50px] bg-[url('/images/home/img2.png')] bg-no-repeat bg-[right_0_center] bg-auto">
         <div className="max-w-[1206px] mx-auto leading-none">
           <div className="text-[45px] text-orange-400 ml-[-40px]">
             {t('item11')}
@@ -64,7 +65,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="h-[680px] bg-gray-100 pt-[100px]">
         <div className="max-w-[1206px] mx-auto leading-none">
           <div className="text-[45px] text-orange-400 ml-[-40px]">
@@ -102,7 +103,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
           </div>
         </div>
       </div>
-      <div className="h-[450px] bg-[url('/bg2.jpg')] bg-no-repeat bg-fixed bg-cover">
+      {/* <div className="h-[450px] bg-[url('/bg2.jpg')] bg-no-repeat bg-fixed bg-cover">
         <div className="flex max-w-[1206px] mx-auto leading-none py-[40px] justify-between gap-[60px]">
           <div className="w-[515px] h-[140px] bg-transparent mt-[20px]">
             <Carouset
@@ -156,7 +157,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
             <div className="ml-[40px] cursor-pointer"><Image className="grayscale hover:grayscale-0" src={'/images/home/img21.png'} alt="" width={127} height={127}></Image></div>
           </div>
         </div>
-      </div>
+      </div> */}
     </main>
   );
 }

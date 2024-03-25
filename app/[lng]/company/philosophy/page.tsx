@@ -17,7 +17,7 @@ export default async function page({ params: { lng } }: { params: { lng: string 
                 },
                 {
                     title: t1('menu4'),
-                    href: `/${lng}/company/philosophy`,
+                    href: `void:0`,
                 }
             ]} />
         <div className="flex justify-between mt-[60px] gap-[50px] mb-[20px]">

@@ -19,7 +19,8 @@ export default function Carouset({ height, width, pagination, imgList }: any) {
     >
         {imgList.map((item: string) => {
             return <SwiperSlide key={item} className="w-full" style={{ height: height, borderRadius: '20px' }}>
-                <Image width={width} height={height}
+                <Image
+                    fill
                     className="rounded-md cursor-pointer w-full" src={item} alt=""></Image>
             </SwiperSlide>
         })}

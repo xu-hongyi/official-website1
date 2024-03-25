@@ -16,19 +16,16 @@ export default function Header({ lng }: any) {
         <div className="h-35 mx-auto max-w-[1206px] flex justify-end">
             <ul className="text-slate-400 text-xs flex items-center">
                 <li className="underline underline-offset-1 mr-3.5 cursor-pointer">
-                    <Link href={`/${lng}/press-contact`}>{t('menu1')}</Link>
+                    <Link href={`/${lng}/news`}>{t('menu2')}</Link>
                 </li>
                 <li className="underline underline-offset-1 mr-3.5 cursor-pointer">
-                    <Link href={`/${lng}/news`}>{t('menu2')}</Link>
+                    <Link href={redirectedPathName('zh')}>CN</Link>
                 </li>
                 <li className="underline underline-offset-1 mr-3.5 cursor-pointer">
                     <Link href={redirectedPathName('de')}>DE</Link>
                 </li>
                 <li className="underline underline-offset-1 mr-3.5 cursor-pointer">
                     <Link href={redirectedPathName('en')}>EN</Link>
-                </li>
-                <li className="underline underline-offset-1 cursor-pointer">
-                    <Link href={redirectedPathName('ua')}>UA</Link>
                 </li>
             </ul>
         </div>
@@ -45,7 +42,7 @@ export default function Header({ lng }: any) {
                             <Link href={`/${lng}/company/philosophy`}>{t('menu4')}</Link>
                         </li>
                         <li className="h-[40px] text-white leading-[40px] cursor-pointer">
-                            <Link href={`/${lng}/company/managing-director`}>{t('menu5')}</Link>
+                            <Link href={`/${lng}/company/founding-members`}>{t('menu5')}</Link>
                         </li>
                         <li className="h-[40px] text-white leading-[40px] cursor-pointer">
                             <Link href={`/${lng}/company/locations`}>{t('menu6')}</Link>
@@ -59,7 +56,7 @@ export default function Header({ lng }: any) {
                     <Link href={`/${lng}/competencies`}>{t('menu8')}</Link>
                 </li>
                 <li className="cursor-pointer h-full leading-[114px]">
-                    <Link href={`/${lng}/projects`}>{t('menu9')}</Link>
+                    <Link href={`/${lng}/industry`}>{t('menu9')}</Link>
                 </li>
             </ul>
         </div>

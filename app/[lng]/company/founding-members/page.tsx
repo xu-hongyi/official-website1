@@ -1,7 +1,7 @@
 import { useTranslation } from "@/app/i18n/index"
 import { Breadcrumb } from "antd";
 export default async function page({ params: { lng } }: { params: { lng: string } }) {
-    const { t } = await useTranslation(lng, 'managing-director')
+    const { t } = await useTranslation(lng, 'founding-members')
     const { t: t1 } = await useTranslation(lng, 'header')
     return <div className="max-w-[1206px] mx-auto leading-none pt-[40px]">
         <Breadcrumb
@@ -16,8 +16,8 @@ export default async function page({ params: { lng } }: { params: { lng: string 
                     href: `/${lng}/company`,
                 },
                 {
-                    title: t1('menu4'),
-                    href: `/${lng}/company/managing-director`,
+                    title: t1('menu5'),
+                    href: `void:0`,
                 }
             ]} />
         <div className="flex justify-between mt-[60px] gap-[50px] mb-[50px]">
