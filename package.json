@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.0",
     "@formatjs/intl-localematcher": "^0.5.4",
     "@types/negotiator": "^0.6.3",
+    "antd": "^5.15.3",
     "i18next": "^23.10.1",
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-resources-to-backend": "^1.2.0",
@@ -23,6 +25,8 @@
     "swiper": "^11.0.7"
   },
   "devDependencies": {
+    "@iconify/json": "^2.2.194",
+    "@iconify/tailwind": "^0.1.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

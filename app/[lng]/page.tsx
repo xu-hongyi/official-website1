@@ -1,13 +1,9 @@
-'use client'
-import { useTranslation } from "@/app/i18n/client"
+import { useTranslation } from "@/app/i18n/index"
 import Image from 'next/image'
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import Link from "next/link";
-export default function Home({ params: { lng } }: { params: { lng: string } }) {
-  const [t] = useTranslation(lng, 'home')
+import News from "../components/News";
+import Carouset from "../components/Carousel";
+export default async function Home({ params: { lng } }: { params: { lng: string } }) {
+  const { t } = await useTranslation(lng, 'home')
   return (
     <main>
       <div className="h-[500px] mb-[8px] bg-black relative">
@@ -58,30 +54,13 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
             <br />
             <p>{t('item14')}</p>
             <div className="h-[215px] mt-[20px]">
-              <Swiper
-                modules={[Pagination, Autoplay]}
-                spaceBetween={0}
-                slidesPerView={1}
-                pagination={{ clickable: true }}
-                autoplay={{
-                  delay: 3000,
-                  disableOnInteraction: false
-                }}
-                loop
-              >
-                <SwiperSlide className="w-full" style={{ background: "lightblue", height: 215, borderRadius: '20px' }}>
-                  <Image width={580} height={215}
-                    className="rounded-md cursor-pointer w-full" src={'/images/home/img3.jpg'} alt=""></Image>
-                </SwiperSlide>
-                <SwiperSlide className="w-full" style={{ background: "lightblue", height: 215, borderRadius: '20px' }}>
-                  <Image width={580} height={215}
-                    className="rounded-md cursor-pointer w-full" src={'/images/home/img4.jpg'} alt=""></Image>
-                </SwiperSlide>
-                <SwiperSlide className="w-full" style={{ background: "lightblue", height: 215, borderRadius: '20px' }}>
-                  <Image width={580} height={215}
-                    className="rounded-md cursor-pointer w-full" src={'/images/home/img5.jpg'} alt=""></Image>
-                </SwiperSlide>
-              </Swiper>
+              <Carouset
+                imgList={['/images/home/img3.jpg', '/images/home/img4.jpg', '/images/home/img5.jpg']}
+                width={580}
+                height={215}
+                namespace="home"
+                pagination
+              />
             </div>
           </div>
         </div>
@@ -124,30 +103,60 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
         </div>
       </div>
       <div className="h-[450px] bg-[url('/bg2.jpg')] bg-no-repeat bg-fixed bg-cover">
-        <div className="w-[515px] h-[140px]">
-          <Swiper
-            modules={[Autoplay]}
-            spaceBetween={0}
-            slidesPerView={1}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false
-            }}
-            loop
-          >
-            <SwiperSlide className="w-full" style={{ background: "lightblue", height: 140, borderRadius: '20px' }}>
-              <Image width={515} height={140}
-                className="rounded-md cursor-pointer w-full" src={'/images/home/img16.png'} alt=""></Image>
-            </SwiperSlide>
-            <SwiperSlide className="w-full" style={{ background: "lightblue", height: 140, borderRadius: '20px' }}>
-              <Image width={515} height={140}
-                className="rounded-md cursor-pointer w-full" src={'/images/home/img17.png'} alt=""></Image>
-            </SwiperSlide>
-          </Swiper>
+        <div className="flex max-w-[1206px] mx-auto leading-none py-[40px] justify-between gap-[60px]">
+          <div className="w-[515px] h-[140px] bg-transparent mt-[20px]">
+            <Carouset
+              imgList={['/images/home/img16.png', '/images/home/img17.png']}
+              width={515}
+              height={140}
+              namespace="home"
+            />
+          </div>
+          <div>
+            <div className="bg-white rounded-xl p-[30px]">
+              <p className="text-[34px] text-orange-400">{t('item17')}</p>
+              <p className="mt-[20px] text-[22px] leading-[30px]">{t('item18')}</p>
+            </div>
+            <div className="rounded-xl h-[60px] bg-[#9AA921] w-fit p-[20px] mt-[20px] text-[20px] text-white flex items-center cursor-pointer group/item">
+              {t('item19')}
+              <span className="icon-[fluent--chevron-right-24-regular] ml-[10px] text-[24px] hidden  group-hover/item:inline-block"></span>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="h-[696px] bg-[url('/bg3.jpg')] bg-no-repeat bg-fixed bg-cover"></div>
-      <div className="h-[278px] bg-[url('/bg4.jpg')] bg-no-repeat bg-fixed bg-cover"></div>
+      <div className="h-[696px] bg-[url('/bg3.jpg')] bg-no-repeat bg-fixed bg-cover pt-[30px]">
+        <div className="max-w-[1206px] mx-auto">
+          <strong className="text-[45px] text-orange-400 ml-[-40px]">{t('item20')}</strong>
+        </div>
+        <div className="max-w-[1206px] mx-auto flex justify-around">
+          <News namespace="home" lang={lng}></News>
+          <News namespace="home" lang={lng}></News>
+          <News namespace="home" lang={lng}></News>
+        </div>
+        <div className="max-w-[1206px] mx-auto flex justify-center mt-[60px]">
+          <div className="px-[30px] h-[46px] flex items-center cursor-pointer text-white rounded bg-orange-600 group text-center leading-[46px] text-[20px]">
+            {t('item23')}
+            <span className="icon-[fluent--chevron-right-24-regular] ml-[10px] text-[24px] hidden group-hover:inline-block"></span>
+          </div>
+        </div>
+      </div>
+      <div className="h-[278px] py-[40px] bg-[url('/bg4.jpg')] bg-no-repeat bg-fixed bg-cover">
+        <div className="max-w-[1206px] mx-auto flex justify-between text-white">
+          <div>
+            <div className="text-[40px] leading-none">{t('item24')}</div>
+            <div className="text-[42px] leading-none"><strong>{t('item25')}</strong></div>
+            <br />
+            <div className="text-[24px] leading-none">{t('item26')}</div>
+            <div className="text-[26px] leading-none"><strong>{t('item27')}</strong></div>
+          </div>
+          <div className="flex items-center justify-center grow">
+            <div className="ml-[40px] cursor-pointer"><Image className="grayscale hover:grayscale-0" src={'/images/home/img19.png'} alt="" width={100} height={140}></Image></div>
+            <div className="ml-[40px] cursor-pointer"><Image className="grayscale hover:grayscale-0" src={'/images/home/img20.jpg'} alt="" width={111} height={140}></Image></div>
+            <div className="ml-[40px] cursor-pointer"><Image className="grayscale hover:grayscale-0" src={'/footer.png'} alt="" width={127} height={127}></Image></div>
+            <div className="ml-[40px] cursor-pointer"><Image className="grayscale hover:grayscale-0" src={'/images/home/img21.png'} alt="" width={127} height={127}></Image></div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

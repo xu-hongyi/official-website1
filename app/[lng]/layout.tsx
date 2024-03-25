@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 import "./globals.css";
 import { locales } from "@/config";
 import Header from "@/components/Header";
@@ -26,7 +27,9 @@ export default function RootLayout({
     <html lang={lng}>
       <body>
         <Header lng={lng}></Header>
-        <div className="pt-[149px] min-h-screen text-black">{children}</div>
+        <div className="pt-[149px] text-black">
+          <AntdRegistry>{children}</AntdRegistry>
+        </div>
         <Footer lng={lng}></Footer>
       </body>
     </html>

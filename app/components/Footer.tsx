@@ -2,8 +2,8 @@ import { useTranslation } from "../i18n"
 
 export default async function Footer({ lng }: any) {
     const { t } = await useTranslation(lng, 'footer')
-    return <footer className="bg-orange-400 h-[354px] w-full pt-[73px]">
-        <ul className="mx-auto max-w-[1206px] h-full flex">
+    return <footer className="bg-orange-400 w-full pt-[66px] pb-[40px]">
+        <ul className="mx-auto max-w-[1206px] h-full flex text-[18px]">
             <li className="grow">
                 <img width={95} src="/logo.png" alt="" />
             </li>

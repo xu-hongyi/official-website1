@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+const { addDynamicIconSelectors } = require('@iconify/tailwind')
 const heightMap = new Array(300).fill(1).reduce((prev, current, index) => {
   prev[index] = `${index}px`
   return prev
@@ -18,6 +18,6 @@ const config: Config = {
       }
     },
   },
-  plugins: [],
+  plugins: [addDynamicIconSelectors()],
 };
 export default config;
