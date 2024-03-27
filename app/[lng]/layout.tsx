@@ -4,6 +4,7 @@ import "./globals.css";
 import { locales } from "@/config";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CookieAccept from "../components/CookieAccept";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,6 +31,7 @@ export default function RootLayout({
         <div className="pt-[149px] text-black">
           <AntdRegistry>{children}</AntdRegistry>
         </div>
+        <CookieAccept />
         <Footer lng={lng}></Footer>
       </body>
     </html>
